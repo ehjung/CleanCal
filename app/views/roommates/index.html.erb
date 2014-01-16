@@ -1,9 +1,9 @@
-<h1>Listing roommates</h1>
+<h1>Roommates</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Action</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,14 +14,13 @@
     <% @roommates.each do |roommate| %>
       <tr>
         <td><%= roommate.name %></td>
-        <td><%= link_to 'Show', roommate %></td>
-        <td><%= link_to 'Edit', edit_roommate_path(roommate) %></td>
-        <td><%= link_to 'Destroy', roommate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<!--        <td><%= link_to 'Edit', edit_roommate_path(task) %></td>
+        <td><%= link_to 'Delete', task, method: :delete %></td>
+      </tr> !-->
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Roommate', new_roommate_path %>
+<%= link_to 'New Task', new_task_path %>
