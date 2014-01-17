@@ -1,14 +1,18 @@
 <h1>Roommates</h1>
 
 <table>
-  <td><%= link_to 'Add Roommate', new_roommate_path %></td>
+  <div class = 'btn btn-group'>
+  <td><%= link_to 'Add Roommate', new_roommate_path, :class => "btn btn-default"%></td>
+</div>
 
   <tbody>
     <% @roommates.each do |roommate| %>
       <tr>
         <td><%= roommate.name %></td>
-        <td><%= link_to 'Edit', edit_roommate_path(roommate) %></td>
-        <td><%= link_to 'Delete', roommate, method: :delete %></td>
+        <div class='btn btn-group'>
+        <td><%= link_to 'Edit', edit_roommate_path(roommate), :class => "btn btn-default"%></td>
+        <td><%= link_to 'Delete', roommate, method: :delete, :class => "btn btn-default"%></td>
+      </div>
       </tr>
     <% end %>
   </tbody>

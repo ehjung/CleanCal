@@ -55,5 +55,7 @@ CleanCal::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :roommates
+  resources :roommates, :tasks
+
+  root to: 'roommates#index'
 end
