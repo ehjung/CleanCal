@@ -1,26 +1,17 @@
 <h1>Roommates</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Action</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <td><%= link_to 'Add Roommate', new_roommate_path %></td>
 
   <tbody>
     <% @roommates.each do |roommate| %>
       <tr>
         <td><%= roommate.name %></td>
-<!--        <td><%= link_to 'Edit', edit_roommate_path(task) %></td>
-        <td><%= link_to 'Delete', task, method: :delete %></td>
-      </tr> !-->
+        <td><%= link_to 'Edit', edit_roommate_path(roommate) %></td>
+        <td><%= link_to 'Delete', roommate, method: :delete %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>
