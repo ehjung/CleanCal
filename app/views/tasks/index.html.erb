@@ -1,27 +1,21 @@
-<h1>Listing tasks</h1>
+<h1>Tasks</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Action</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class = 'btn btn-group'>
+  <td><%= link_to 'Add Task', new_task_path, :class => "btn btn-default"%></td>
+</div>
 
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.action %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class='btn btn-group'>
+        <td><%= link_to 'Edit', edit_task_path(task), :class => "btn btn-default"%></td>
+        <td><%= link_to 'Delete', task, method: :delete, :class => "btn btn-default"%></td>
+      </div>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>

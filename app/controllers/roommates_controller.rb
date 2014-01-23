@@ -10,7 +10,7 @@ class RoommatesController < ApplicationController
 	end
 
 	def create
-		@roommate = Roommate.new(roommate_params)
+		@roommate = Roommate.new(params[:roommate])
 
 	    respond_to do |format|
 	      if @roommate.save
