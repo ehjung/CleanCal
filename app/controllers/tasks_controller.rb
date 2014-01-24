@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
 	before_action :find_task, only: []
 
+	def index
+		@tasks = Task.all
+	end
+
 	def new
 		@task = Task.new
 	end

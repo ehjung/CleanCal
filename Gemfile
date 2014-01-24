@@ -35,9 +35,11 @@ end
 group :test, :development do
 	gem 'rspec-rails'
 	gem 'rails_layout'
+	gem 'factory_girl_rails', '~> 4.0' 
 end
 
 gem 'bootstrap-sass'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

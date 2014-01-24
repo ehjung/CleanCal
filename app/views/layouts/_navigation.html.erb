@@ -1,10 +1,24 @@
 
 <div class="container">
 <ul class="nav nav-tabs nav-justified">
-  <li class="active"><%= link_to 'Home', root_path, class: 'navtab-brand'%>
-</li>
-  <li class="notactive"><a href="#">Profile</a></li>
-  <li><a href="#">Messages</a></li>
+
+  <% if request.env['PATH_INFO'] == root_path %>
+    <li class="active"><%= link_to 'Home', root_path, class: 'navtab-brand'%></li>
+  <% else %>
+    <li class="notactive"><%= link_to 'Home', root_path, class: 'navtab-brand'%></li>
+  <% end %>
+
+  <% if request.env['PATH_INFO'] == roommates_path %>
+    <li class="active"><%= link_to 'Roommates', roommates_path %></li>
+  <% else %>
+    <li class="notactive"><%= link_to 'Roommates', roommates_path %></li> 
+  <% end %>
+
+  <% if request.env['PATH_INFO'] == tasks_path %>
+    <li class="active"><%= link_to 'Tasks', tasks_path %></li>
+  <% else %>
+    <li class="notactive"><%= link_to 'Tasks', tasks_path %></li>
+  <% end %>
 </ul>
 </div>
 
