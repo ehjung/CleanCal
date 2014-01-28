@@ -19,6 +19,13 @@
   <% else %>
     <li class="notactive"><%= link_to 'Tasks', tasks_path %></li>
   <% end %>
+
+  <% if request.env['PATH_INFO'] == calendar_index_path %>
+    <li class="active"><%= link_to 'Calendar', calendar_index_path %></li>
+  <% else %>
+    <li class="notactive"><%= link_to 'Calendar', calendar_index_path %></li>
+  <% end %>
+
 </ul>
 </div>
 
