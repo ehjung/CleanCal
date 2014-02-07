@@ -1,0 +1,32 @@
+<h1>New Schedule</h1>
+
+<%= form_for(@schedule) do |f| %>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% @schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class='btn btn-group'>
+  	<td><%= link_to 'Back', schedules_path, :class => "btn btn-default" %></td>
+
+  	<div class="action">
+  		<td><%= f.submit 'Next', :class => "btn btn-default"%></td>
+  	</div>
+  </div>
+
+<% end %>
+
+
+

@@ -17,8 +17,11 @@
 //= require_tree .
 
 $(document).ready(function() {
+
     $('#calendar').fullCalendar({
 
     })
-
 });
+}
+
+

@@ -2,19 +2,18 @@ class RoommatesController < ApplicationController
 
 	before_action :find_roommate, only: [:destroy, :edit, :update]
 	def index
-		@roommates = Roommate.all
+		@roommates = Roommate.where(scheduleid: params[:scheduleid]).all
 	end
 
 	def new
-		@roommate = Roommate.new
+		@roommate = Roommate.new(scheduleid: params[:scheduleid])
 	end
 
 	def create
 		@roommate = Roommate.new(roommate_params)
-
 	    respond_to do |format|
 	      if @roommate.save
-	        format.html { redirect_to roommates_path, notice: 'Roommate was successfully created.' }
+	        format.html { redirect_to new_task_path(scheduleid: @roommate.scheduleid)}
 	      else
 	        format.html { render action: 'new' }
 	        format.json { render json: @roommate.errors, status: :unprocessable_entity }
@@ -58,6 +57,6 @@ class RoommatesController < ApplicationController
 	end
 
 	def roommate_params
-		params.require(:roommate).permit(:name)
+		params.require(:roommate).permit(:name, :scheduleid)
 	end
 end

@@ -1,4 +1,6 @@
 <%= form_for(@task) do |f| %>
+  <%= f.hidden_field :scheduleid %>
+
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -15,7 +17,14 @@
     <%= f.label :action %><br>
     <%= f.text_field :action %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <div class='btn btn-group'>
+   <td><%= link_to 'Back', roommates_path(:scheduleid), :class => "btn btn-default" %></td>
+
+    <td><div class="action">
+      <%= f.submit 'Generate Calendar', :class => "btn btn-default" %>
+    </div></td>
+
+</div>
+
 <% end %>

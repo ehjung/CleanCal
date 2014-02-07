@@ -1,0 +1,32 @@
+<h1>Schedules</h1>
+
+<table>
+  <div class = 'btn btn-group'>
+  <td><%= link_to 'Generate Schedule', new_schedule_path, :class => "btn btn-default"%></td>
+</div>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.title %></td>
+        <% if Roommate.where(scheduleid: schedule.id).exists? %>
+          <p>
+            <% Roommate.where(scheduleid: schedule.id).all.each do |roommate| %>
+              <td><%= roommate.name %></td>
+            <% end %>
+          </p>
+        <% end %>
+
+
+        <div class='btn btn-group'>
+          <td><%= link_to 'View', calendars_path(schedule.id), :class => "btn btn-default"%></td>
+          <td><%= link_to 'Delete', schedule, method: :delete, :class => "btn btn-default"%></td>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

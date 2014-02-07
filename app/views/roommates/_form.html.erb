@@ -1,4 +1,6 @@
 <%= form_for(@roommate) do |f| %>
+  <%= f.hidden_field :scheduleid %>
+
   <% if @roommate.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@roommate.errors.count, "error") %> prohibited this roommate from being saved:</h2>
@@ -15,7 +17,13 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class='btn btn-group'>
+    <td><%= link_to 'Back', edit_schedule_path(:scheduleid), :class => "btn btn-default" %></td>
+
+    <td><div class="action">
+      <%= f.submit 'Next', :class => "btn btn-default" %>
+    </div></td>
+
   </div>
 <% end %>

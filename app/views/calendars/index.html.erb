@@ -4,6 +4,8 @@
 <script type='text/javascript' src='jquery.js'></script>
 <script type='text/javascript' src='fullcalendar.js'></script>
 
-<div id='calendar'></div>
-
-
+<div id='calendar'> 
+	<% @events do |event| %>
+	<%= link_to event.name, event %> 
+	<% end %>
+</div>

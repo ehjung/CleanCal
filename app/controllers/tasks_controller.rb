@@ -2,18 +2,18 @@ class TasksController < ApplicationController
 	before_action :find_task, only: [:destroy, :edit, :update]
 
 	def index
-		@tasks = Task.all
+		@tasks = Task.where(scheduleid: params[:scheduleid]).all
 	end
 
 	def new
-		@task = Task.new
+		@task = Task.new(scheduleid: params[:scheduleid])
 	end
 
 	def create
 		@task = Task.new(task_params)
 		respond_to do |format|
 			if @task.save
-				format.html { redirect_to tasks_path, notice: "Task was successfully created." }
+				format.html { redirect_to schedules_path }
 			else 
 				format.html { render action :new }
 				format.json { render json: @tasks.errors, status: :unprocessable_entity }
@@ -57,6 +57,6 @@ class TasksController < ApplicationController
 	end
 
 	def task_params
-		params.require(:task).permit(:action)
+		params.require(:task).permit(:action, :scheduleid)
 	end
 end
