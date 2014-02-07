@@ -1,3 +1,30 @@
 <h1> New Roommate </h1>
 
-<%= render 'form' %>
+<%= form_for(@roommate) do |f| %>
+  <%= f.hidden_field :scheduleid %>
+
+  <% if @roommate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@roommate.errors.count, "error") %> prohibited this roommate from being saved:</h2>
+
+      <ul>
+      <% @roommate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class='btn btn-group'>
+    <td><div class="action">
+      <%= f.submit 'Create', :class => "btn btn-default" %>
+    </div></td>
+
+    <td><%= link_to 'Cancel', roommates_path(:scheduleid), :class => "btn btn-default" %></td>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
 	before_action :find_schedule, only: [:destroy, :edit, :update]
-
+	
 	def index
 		@schedules = Schedule.all
 	end
@@ -14,7 +14,7 @@ class SchedulesController < ApplicationController
 
 	    respond_to do |format|
 	      if @schedule.save
-	        format.html { redirect_to new_roommate_path(scheduleid: @schedule.id) }
+	        format.html { redirect_to roommates_path(scheduleid: @schedule.id) }
 	      else
 	        format.html { render action: 'new' }
 	        format.json { render json: @schedule.errors, status: :unprocessable_entity }
@@ -28,7 +28,6 @@ class SchedulesController < ApplicationController
 	def destroy
 		roommates = Roommate.where(scheduleid: @schedule.id).all
 		tasks = Task.where(scheduleid: @schedule.id).all
-
 		#if !roommates.nil? 
 			roommates.each do |roommate|
 				if roommate.destroy 
@@ -48,7 +47,6 @@ class SchedulesController < ApplicationController
 				end
 			end
 		#end
-
 		respond_to do |format|
 			if @schedule.destroy
 				format.html { redirect_to schedules_path, notice: @notice, alert: @alert }

@@ -13,7 +13,7 @@ class RoommatesController < ApplicationController
 		@roommate = Roommate.new(roommate_params)
 	    respond_to do |format|
 	      if @roommate.save
-	        format.html { redirect_to new_task_path(scheduleid: @roommate.scheduleid)}
+	        format.html { redirect_to roommates_path(scheduleid: @roommate.scheduleid)}
 	      else
 	        format.html { render action: 'new' }
 	        format.json { render json: @roommate.errors, status: :unprocessable_entity }

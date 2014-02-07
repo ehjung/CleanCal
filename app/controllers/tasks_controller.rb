@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 		@task = Task.new(task_params)
 		respond_to do |format|
 			if @task.save
-				format.html { redirect_to schedules_path }
+				format.html { redirect_to tasks_path(scheduleid: @task.scheduleid) }
 			else 
 				format.html { render action :new }
 				format.json { render json: @tasks.errors, status: :unprocessable_entity }
@@ -26,9 +26,10 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
+		@scheduleid = @task.scheduleid;
 		respond_to do |format|
 			if @task.destroy
-				format.html { redirect_to tasks_path, notice: "Task was successfully destroyed." }
+				format.html { redirect_to tasks_path(scheduleid: @scheduleid), notice: "Task was successfully destroyed." }
 			else 
 				format.html { render action :destroy }
 				format.json { render json: @tasks.errors, status: :unprocessable_entity }

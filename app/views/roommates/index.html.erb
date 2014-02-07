@@ -2,8 +2,8 @@
 
 <table>
   <div class = 'btn btn-group'>
-  <td><%= link_to 'Add Roommate', new_roommate_path, :class => "btn btn-default"%></td>
-  <td><%= link_to 'Next', new_task_path, :class => "btn btn-default"%></td>
+  <td><%= link_to 'Add Roommate', new_roommate_path(scheduleid: params[:scheduleid]), :class => "btn btn-default"%></td>
+  <td><%= link_to 'Next', tasks_path(scheduleid: params[:scheduleid]), :class => "btn btn-default"%></td>
 </div>
 
   <tbody>
@@ -11,7 +11,6 @@
       <tr>
         <td><%= roommate.name %></td>
         <div class='btn btn-group'>
-        <td><%= link_to 'Edit', edit_roommate_path(roommate), :class => "btn btn-default"%></td>
         <td><%= link_to 'Delete', roommate, method: :delete, :class => "btn btn-default"%></td>
       </div>
       </tr>

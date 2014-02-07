@@ -2,7 +2,9 @@
 
 <table>
   <div class = 'btn btn-group'>
-  <td><%= link_to 'Add Task', new_task_path, :class => "btn btn-default"%></td>
+  <td><%= link_to 'Add Task', new_task_path(scheduleid: params[:scheduleid]), :class => "btn btn-default"%></td>
+
+  <td><%= link_to 'Generate Calendar', schedules_path, :class => "btn btn-default" %></td> 
 </div>
 
   <tbody>
@@ -10,7 +12,6 @@
       <tr>
         <td><%= task.action %></td>
         <div class='btn btn-group'>
-        <td><%= link_to 'Edit', edit_task_path(task), :class => "btn btn-default"%></td>
         <td><%= link_to 'Delete', task, method: :delete, :class => "btn btn-default"%></td>
       </div>
       </tr>

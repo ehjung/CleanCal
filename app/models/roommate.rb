@@ -1,9 +1,8 @@
 class Roommate < ActiveRecord::Base
+=begin
+	belongs_to :schedule
+	has_many :tasks, dependent: :destroy
 
-	def set_default_name
-		if name.nil?
-			name = 'Anon'
-			errors.add(name, 'Must enter a name.')
-		end
-	end
+	accepts_nested_attributes_for :tasks, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+=end
 end
