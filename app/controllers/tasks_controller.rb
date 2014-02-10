@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+	include EventsHelper
+
 	before_action :find_task, only: [:destroy, :edit, :update]
 
 	def index
@@ -58,6 +60,6 @@ class TasksController < ApplicationController
 	end
 
 	def task_params
-		params.require(:task).permit(:action, :scheduleid)
+		params.require(:task).permit(:action, :scheduleid, :recurrence, :startday, :endday)
 	end
 end

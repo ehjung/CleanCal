@@ -69,7 +69,7 @@ class SchedulesController < ApplicationController
 			end
 		end
 	end
-
+	
 	private
 
 	def find_schedule

@@ -1,11 +1,31 @@
-<h1>Calendar</h1>
 
-<link rel='stylesheet' type='text/css' href='fullcalendar.css' />
-<script type='text/javascript' src='jquery.js'></script>
-<script type='text/javascript' src='fullcalendar.js'></script>
+<script>
 
-<div id='calendar'> 
-	<% @events do |event| %>
-	<%= link_to event.name, event %> 
-	<% end %>
-</div>
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			editable: true,
+			events: [
+			<% if !@events.nil? %>
+				<% @events.each do |event| %>
+					{
+						title: '<%= event.title %>',
+						start: '<%= event.start %>',
+						end: '<%= event.end %>'
+					},
+				<% end %>
+			<%end %>
+			]
+		});
+		
+	});
+
+</script>
+
+<div id='calendar'></div>
+

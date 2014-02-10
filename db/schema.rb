@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207165027) do
+ActiveRecord::Schema.define(version: 20140210210240) do
 
   create_table "calendars", force: true do |t|
-    t.integer  "scheduleid"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "start"
+    t.string   "end"
+    t.integer  "scheduleid"
   end
 
   create_table "roommates", force: true do |t|
@@ -37,6 +45,9 @@ ActiveRecord::Schema.define(version: 20140207165027) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "scheduleid"
+    t.string   "recurrence"
+    t.datetime "startday"
+    t.datetime "endday"
   end
 
 end

@@ -18,7 +18,11 @@
   <div class="field">
     <%= f.label :action %><br>
     <%= f.text_field :action %>
+    <%= f.collection_select :recurrence, Event::RECURRENCE, :to_s, :to_s %><br>
+    <%= f.date_select :startday %> to
+    <%= f.date_select :endday %> 
   </div>
+
   
   <div class='btn btn-group'>
     <td><div class="action">

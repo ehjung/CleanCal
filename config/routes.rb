@@ -55,7 +55,7 @@ CleanCal::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :roommates, :tasks, :calendars, :schedules
+  resources :roommates, :tasks, :calendars, :schedules, :events
 
   root to: 'schedules#index'
 end
