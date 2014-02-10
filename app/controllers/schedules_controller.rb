@@ -28,6 +28,7 @@ class SchedulesController < ApplicationController
 	def destroy
 		roommates = Roommate.where(scheduleid: @schedule.id).all
 		tasks = Task.where(scheduleid: @schedule.id).all
+		events = Event.where(scheduleid: @schedule.id).all
 		#if !roommates.nil? 
 			roommates.each do |roommate|
 				if roommate.destroy 
@@ -43,10 +44,19 @@ class SchedulesController < ApplicationController
 				if task.destroy 
 					@notice = "Schedule deleted"
 				else
-					@warning = "Error while deleting roommate under schedule"
+					@warning = "Error while deleting task under schedule"
 				end
 			end
 		#end
+
+		events.each do |event| 
+			if event.destroy
+				@notice = "Schedule deleted"
+			else
+				@warning = "Error while deleting event under schedule"
+			end
+		end
+		
 		respond_to do |format|
 			if @schedule.destroy
 				format.html { redirect_to schedules_path, notice: @notice, alert: @alert }
