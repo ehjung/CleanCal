@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210210240) do
+ActiveRecord::Schema.define(version: 20140210213105) do
 
   create_table "calendars", force: true do |t|
     t.datetime "created_at"
@@ -40,14 +40,7 @@ ActiveRecord::Schema.define(version: 20140210210240) do
     t.string   "title"
   end
 
-  create_table "tasks", force: true do |t|
-    t.string   "action"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "scheduleid"
-    t.string   "recurrence"
-    t.datetime "startday"
-    t.datetime "endday"
-  end
+# Could not dump table "tasks" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

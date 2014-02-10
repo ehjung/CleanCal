@@ -16,13 +16,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :action %><br>
-    <%= f.text_field :action %>
+    <%= f.label 'Task' %>
+    <%= f.text_field :action %> <br>
+    <%= f.label 'Repeat' %>
     <%= f.collection_select :recurrence, Event::RECURRENCE, :to_s, :to_s %><br>
-    <%= f.date_select :startday %> to
+    <%= f.label 'Starting from' %>
+    <%= f.date_select :startday %><br>
+    <%= f.label 'Ending at' %>
     <%= f.date_select :endday %> 
   </div>
-
   
   <div class='btn btn-group'>
     <td><div class="action">
