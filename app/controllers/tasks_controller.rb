@@ -9,10 +9,12 @@ class TasksController < ApplicationController
 
 	def new
 		@task = Task.new(scheduleid: params[:scheduleid])
+		@roommates = Roommate.where(scheduleid: params[:scheduleid]).all
 	end
 
 	def create
 		@task = Task.new(task_params)
+
 		respond_to do |format|
 			if @task.save
 				format.html { redirect_to tasks_path(scheduleid: @task.scheduleid) }
@@ -60,6 +62,6 @@ class TasksController < ApplicationController
 	end
 
 	def task_params
-		params.require(:task).permit(:action, :scheduleid, :recurrence, :startday, :endday)
+		params.require(:task).permit(:action, :scheduleid, :recurrence, :startday, :endday, assignedto: [])
 	end
 end

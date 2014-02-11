@@ -23,7 +23,7 @@ class EventsController < ApplicationController
 
 	def new 
 		@event = Event.new(scheduleid: params[:scheduleid])
-
+		
 		respond_to do |format|
 			format.html
 			format.xml { render :xml => @event }

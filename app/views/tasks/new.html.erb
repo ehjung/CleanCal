@@ -26,6 +26,18 @@
     <%= f.date_select :endday %> 
   </div>
   
+  <% if !@roommates.nil? %>
+    <div class="field">
+      <%= f.label 'Assign to' %>
+
+      <% @roommates.each do |roommate| %>
+        <%= check_box_tag('assignedto[tag_ids][]', roommate.id, @assignedto.tags.include?(tag)) %>
+        <%= h roommate.name %>
+      <% end %>
+    </div>
+    
+  <% end %>
+
   <div class='btn btn-group'>
     <td><div class="action">
       <%= f.submit 'Create', :class => "btn btn-default" %>
