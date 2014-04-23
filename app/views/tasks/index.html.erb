@@ -4,7 +4,7 @@
   <div class = 'btn btn-group'>
   <td><%= link_to 'Add Task', new_task_path(scheduleid: params[:scheduleid]), :class => "btn btn-default"%></td>
 
-  <td><%= link_to 'Generate Calendar', schedules_path, method: controller.generate_events(params[:scheduleid]), :class => "btn btn-default" %></td> 
+  <td><%= link_to 'Generate Calendar', calendars_path, method: controller.generate_events(params[:scheduleid]), :class => "btn btn-default" %></td> 
 </div>
 
   <tbody>
