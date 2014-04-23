@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 	end
 
 	def create
-		@task = Task.new(task_params)
+		@task = Task.new(task_params, assignedto: params[:assignedto])
 
 		respond_to do |format|
 			if @task.save
@@ -62,6 +62,6 @@ class TasksController < ApplicationController
 	end
 
 	def task_params
-		params.require(:task).permit(:action, :scheduleid, :recurrence, :startday, :endday, assignedto: [])
+		params.require(:task).permit(:action, :scheduleid, :recurrence, :startday, :endday)
 	end
 end

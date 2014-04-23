@@ -31,7 +31,7 @@
       <%= f.label 'Assign to' %>
 
       <% @roommates.each do |roommate| %>
-        <%= check_box_tag('assignedto[tag_ids][]', roommate.id, @assignedto.tags.include?(tag)) %>
+        <%= check_box_tag 'assignedto[]', roommate.id, checked='true' %>
         <%= h roommate.name %>
       <% end %>
     </div>

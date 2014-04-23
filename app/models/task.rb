@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-=begin
-	belongs_to :roommate
-=end
+
+	serialize :assignedto, Array
+
 end
