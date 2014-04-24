@@ -13,7 +13,7 @@
           <p>
             <% Roommate.where(scheduleid: schedule.id).all.each do |roommate| %>
               <td><%= roommate.name %></td>
-            <% end %>
+            <% end %> 
           </p>
         <% end %>
 
