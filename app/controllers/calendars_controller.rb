@@ -6,7 +6,7 @@ class CalendarsController < ApplicationController
 	end
 	
 	def create
-		@calendar = Calendar.new(calendar_params)
+		@calendar = Calendar.new(scheduleid: params[:scheduleid])
 		respond_to do |format|
 			if @calendar.save
 				format.html { redirect_to calendars_path }
@@ -17,7 +17,11 @@ class CalendarsController < ApplicationController
 	    end
 	end
 
+	def new
+		@calendar = Calendar.new(calendar_params)
+	end
+
 	def calendar_params
-		params.require(:calendar)#.permit(:title, :start, :end, :scheduleid)
+		params.require(:calendar).permit(:title, :start, :end, :scheduleid)
 	end
 end

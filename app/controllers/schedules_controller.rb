@@ -87,6 +87,6 @@ class SchedulesController < ApplicationController
 	end
 
 	def schedule_params
-		#params.require(:schedule).permit(:title)
+		params.require(:schedule).permit(:title)
 	end
 end
